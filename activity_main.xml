@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_deep">
+
+    <!-- ═══ WINDOW TITLE BAR ═══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:background="@color/bg_window">
+
+        <!-- Traffic lights (macOS style) -->
+        <View android:layout_width="12dp" android:layout_height="12dp"
+            android:background="@drawable/dot_red"/>
+        <View android:layout_width="12dp" android:layout_height="12dp"
+            android:layout_marginStart="8dp" android:background="@drawable/dot_yellow"/>
+        <View android:layout_width="12dp" android:layout_height="12dp"
+            android:layout_marginStart="8dp" android:background="@drawable/dot_green"/>
+
+        <TextView
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start Over"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginStart="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Space Lens"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <!-- ═══ BREADCRUMB / NAVIGATION BAR ═══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:background="@color/bg_window">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="36dp" android:layout_height="36dp"
+            android:src="@drawable/ic_chevron_left"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/text_secondary"/>
+
+        <ImageButton
+            android:id="@+id/btnForward"
+            android:layout_width="36dp" android:layout_height="36dp"
+            android:src="@drawable/ic_chevron_right"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/text_dim"/>
+
+        <LinearLayout
+            android:layout_width="0dp" android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/bg_breadcrumb">
+
+            <ImageView
+                android:layout_width="16dp" android:layout_height="16dp"
+                android:src="@drawable/ic_hdd"
+                android:tint="@color/text_primary"/>
+
+            <TextView
+                android:id="@+id/txtPath"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Internal Storage"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ═══ MAIN CONTENT: Sidebar + Bubble Canvas ═══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <!-- LEFT SIDEBAR -->
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/bg_sidebar"
+            android:gravity="center_horizontal"
+            android:paddingVertical="16dp">
+
+            <ImageView android:layout_width="28dp" android:layout_height="28dp"
+                android:src="@drawable/ic_hdd" android:tint="@color/text_primary"/>
+            <ImageView android:layout_width="28dp" android:layout_height="28dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_globe" android:tint="@color/text_dim"/>
+            <ImageView android:layout_width="28dp" android:layout_height="28dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_hand" android:tint="@color/text_dim"/>
+            <ImageView android:layout_width="28dp" android:layout_height="28dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_bolt" android:tint="@color/text_dim"/>
+            <ImageView android:layout_width="28dp" android:layout_height="28dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_person" android:tint="@color/text_dim"/>
+
+            <!-- Active bubble icon -->
+            <FrameLayout
+                android:layout_width="44dp" android:layout_height="44dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_sidebar_active">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_bubble" android:tint="@color/text_primary"/>
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- CONTENT AREA -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <!-- FILE LIST CARD (Left panel) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="16dp">
+
+                <!-- Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView android:layout_width="36dp" android:layout_height="36dp"
+                        android:src="@drawable/ic_hdd"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+                        <TextView android:id="@+id/txtDriveName"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Internal Storage" android:textColor="@color/text_primary"
+                            android:textSize="15sp" android:textStyle="bold"/>
+                        <TextView android:id="@+id/txtDriveInfo"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="128 GB  |  1M items"
+                            android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Select: None ⌄"
+                    android:textColor="@color/text_secondary" android:textSize="12sp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerFiles"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none"/>
+            </LinearLayout>
+
+            <!-- BUBBLE VISUALIZATION (Right panel) -->
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_card">
+
+                <com.example.spacelens.BubbleView
+                    android:id="@+id/bubbleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ═══ BOTTOM STATUS BAR ═══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:background="@color/bg_window">
+
+        <!-- Circle indicator -->
+        <View android:layout_width="32dp" android:layout_height="32dp"
+            android:background="@drawable/circle_indicator"/>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:layout_marginStart="12dp">
+            <TextView android:id="@+id/txtBottomTitle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Internal Storage"
+                android:textColor="@color/text_primary" android:textSize="14sp"/>
+            <ProgressBar android:id="@+id/progressStorage"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent" android:layout_height="6dp"
+                android:layout_marginTop="6dp"
+                android:max="100" android:progress="34"
+                android:progressTint="@color/progress_fill"
+                android:progressBackgroundTint="@color/progress_track"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/txtUsed"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="45 GB of 128 GB used"
+            android:textColor="@color/text_secondary" android:textSize="12sp"/>
+    </LinearLayout>
+</LinearLayout>

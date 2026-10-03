@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_deep">#1A0B2E</color>
+    <color name="bg_window">#2D1B4E</color>
+    <color name="bg_card">#3D2A5F</color>
+    <color name="bg_sidebar">#251743</color>
+    <color name="bg_bubble">#5B3E96</color>
+    <color name="bg_bubble_light">#7B5FB8</color>
+    
+    <color name="accent_purple">#9D7CE8</color>
+    <color name="accent_blue">#7EB8E8</color>
+    <color name="accent_folder">#8FC4EC</color>
+    <color name="accent_pink">#E85BA8</color>
+    
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B8A8D8</color>
+    <color name="text_dim">#7A6A9A</color>
+    
+    <color name="divider">#4A3570</color>
+    <color name="progress_track">#3D2A5F</color>
+    <color name="progress_fill">#9D7CE8</color>
+</resources>
