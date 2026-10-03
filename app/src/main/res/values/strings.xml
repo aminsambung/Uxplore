@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- NAMA APLIKASI                            -->
+    <!-- ═══════════════════════════════════════ -->
+    <string name="app_name">Space Lens</string>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- TITLE BAR (macOS style)                  -->
+    <!-- ═══════════════════════════════════════ -->
+    <string name="title_start_over">⟲  Start Over</string>
+    <string name="title_space_lens">Space Lens</string>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- NAVIGATION BAR                           -->
+    <!-- ═══════════════════════════════════════ -->
+    <string name="btn_back">&#8249;</string>
+    <string name="btn_forward">&#8250;</string>
+    <string name="label_internal_storage">Internal Storage</string>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PANEL KIRI (daftar file)                 -->
+    <!-- ═══════════════════════════════════════ -->
+    <string name="label_select_none">Select: None ⌄</string>
+    <string name="label_items">1M items</string>
+    <string name="label_drive_info">128 GB  |  1M items</string>
+    <string name="label_folder">Folder</string>
+    <string name="label_file">File</string>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PANEL KANAN (bubble view)                -->
+    <!-- ═══════════════════════════════════════ -->
+    <string name="label_bubble_placeholder">[ Bubble Visualization ]\n\nUsers · Library · Applications\nSystem · private · usr</string>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- STATUS BAR BAWAH                         -->
+    <!-- ═══════════════════════════════════════ -->
+    <string name="label_used">45 GB of 128 GB used</string>
+    <string name="label_no_items">No Items selected  |  0 KB</string>
+    <string name="btn_review">Review and Remove</string>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PESAN / TOAST                            -->
+    <!-- ═══════════════════════════════════════ -->
+    <string name="msg_permission_required">Izin diperlukan untuk menjelajah file</string>
+    <string name="msg_permission_denied">Izin ditolak</string>
+    <string name="msg_root_folder">Sudah di root folder</string>
+    <string name="msg_cannot_access">Tidak bisa mengakses folder ini</string>
+    <string name="msg_empty_folder">Folder ini kosong</string>
+    <string name="msg_no_app">Tidak ada aplikasi untuk membuka file ini</string>
+    <string name="msg_open_with">Buka dengan</string>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- DIALOG IZIN                              -->
+    <!-- ═══════════════════════════════════════ -->
+    <string name="dialog_permission_title">Izin Diperlukan</string>
+    <string name="dialog_permission_msg">Aplikasi membutuhkan akses ke semua file untuk visualisasi disk.</string>
+    <string name="dialog_open_settings">Buka Pengaturan</string>
+    <string name="dialog_cancel">Batal</string>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- SATUAN UKURAN                            -->
+    <!-- ═══════════════════════════════════════ -->
+    <string name="unit_b">B</string>
+    <string name="unit_kb">KB</string>
+    <string name="unit_mb">MB</string>
+    <string name="unit_gb">GB</string>
+    <string name="unit_tb">TB</string>
+
+</resources>
