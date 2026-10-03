@@ -1,36 +1,26 @@
 name: Build Android APK
 
-# ═══════════════════════════════════════════
-# KAPAN WORKFLOW DIJALANKAN
-# ═══════════════════════════════════════════
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [ main, master ]
   pull_request:
-    branches:
-      - main
-      - master
-  workflow_dispatch:   # bisa dijalankan manual dari tab Actions
+    branches: [ main, master ]
+  workflow_dispatch:
 
-# ═══════════════════════════════════════════
-# JOBS
-# ═══════════════════════════════════════════
 jobs:
   build:
-    name: Build Debug & Release APK
+    name: Build Debug APK
     runs-on: ubuntu-latest
 
     steps:
       # ─────────────────────────────────────
-      # 1. Checkout kode dari repository
+      # 1. Checkout repository
       # ─────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
 
       # ─────────────────────────────────────
-      # 2. Setup Java JDK 17
+      # 2. Setup JDK 17
       # ─────────────────────────────────────
       - name: Setup JDK 17
         uses: actions/setup-java@v4
@@ -39,13 +29,13 @@ jobs:
           java-version: '17'
 
       # ─────────────────────────────────────
-      # 3. Setup Android SDK
+      # 3. ❌ HAPUS setup-android — SDK sudah pre-installed!
+      #    Android SDK di ubuntu-latest sudah ada di:
+      #    /usr/local/lib/android/sdk
       # ─────────────────────────────────────
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
 
       # ─────────────────────────────────────
-      # 4. Cache Gradle (biar build cepat)
+      # 4. Cache Gradle
       # ─────────────────────────────────────
       - name: Cache Gradle packages
         uses: actions/cache@v4
@@ -70,28 +60,11 @@ jobs:
         run: ./gradlew assembleDebug --stacktrace
 
       # ─────────────────────────────────────
-      # 7. Build Release APK (unsigned)
-      # ─────────────────────────────────────
-      - name: Build Release APK
-        run: ./gradlew assembleRelease --stacktrace
-        continue-on-error: true
-
-      # ─────────────────────────────────────
-      # 8. Upload Debug APK sebagai artifact
+      # 7. Upload Debug APK
       # ─────────────────────────────────────
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
           path: app/build/outputs/apk/debug/*.apk
-          if-no-files-found: warn
-
-      # ─────────────────────────────────────
-      # 9. Upload Release APK sebagai artifact
-      # ─────────────────────────────────────
-      - name: Upload Release APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-release
-          path: app/build/outputs/apk/release/*.apk
           if-no-files-found: warn
